@@ -79,25 +79,27 @@ const initDb = async () => {
     // Seed default admin if not exists (Voxen Cloud Services)
     const adminCheck = await pool.query("SELECT id FROM users WHERE email = 'admin@voxen.io'");
     if (adminCheck.rows.length === 0) {
-      const adminPassHash = await bcrypt.hash('AdminPassword123!', 10);
+      const adminPass = process.env.ADMIN_DEFAULT_PASSWORD || 'AdminPassword123!';
+      const adminPassHash = await bcrypt.hash(adminPass, 10);
       await pool.query(
         `INSERT INTO users (name, email, password_hash, role, is_active)
          VALUES ($1, $2, $3, 'ADMIN', true)`,
         ['System Administrator', 'admin@voxen.io', adminPassHash]
       );
-      logger.info('Default admin user created: admin@voxen.io / AdminPassword123!');
+      logger.info('Default admin user created: admin@voxen.io');
     }
 
     // Seed demo user if not exists
     const demoCheck = await pool.query("SELECT id FROM users WHERE email = 'demo@voxen.io'");
     if (demoCheck.rows.length === 0) {
-      const demoPassHash = await bcrypt.hash('DemoPassword123!', 10);
+      const demoPass = process.env.DEMO_DEFAULT_PASSWORD || 'DemoPassword123!';
+      const demoPassHash = await bcrypt.hash(demoPass, 10);
       await pool.query(
         `INSERT INTO users (name, email, password_hash, role, is_active)
          VALUES ($1, $2, $3, 'USER', true)`,
         ['Alex Morgan', 'demo@voxen.io', demoPassHash]
       );
-      logger.info('Default demo user created: demo@voxen.io / DemoPassword123!');
+      logger.info('Default demo user created: demo@voxen.io');
     }
 
     return true;

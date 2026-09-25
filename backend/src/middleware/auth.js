@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 const logger = require('../utils/logger');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'voxen-super-secret-jwt-key-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-insecure-jwt-secret-key-do-not-use-in-production';
 
 const authenticate = async (req, res, next) => {
   try {

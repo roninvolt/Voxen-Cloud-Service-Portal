@@ -343,9 +343,9 @@ To scale file storage beyond local disk space, configure AWS S3:
    ```env
    STORAGE_PROVIDER=s3
    AWS_REGION=us-east-1
-   AWS_S3_BUCKET=voxen-production-storage
-   AWS_ACCESS_KEY_ID=AKIA...
-   AWS_SECRET_ACCESS_KEY=wJalrXUtn...
+   AWS_S3_BUCKET=your-production-bucket-name
+   AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY_ID
+   AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY
    ```
 5. **Restart Backend**:
    ```bash
@@ -367,7 +367,7 @@ Go to **Repository Settings** ➔ **Secrets and variables** ➔ **Actions** ➔ 
 
 | Secret Name | Value Example | Description |
 | :--- | :--- | :--- |
-| `SSH_HOST` | `54.210.12.34` | Public IP or DNS of your EC2 instance |
+| `SSH_HOST` | `YOUR_SERVER_PUBLIC_IP` | Public IP or DNS of your EC2 instance |
 | `SSH_USER` | `ubuntu` | SSH username (default for Ubuntu AMI) |
 | `SSH_PRIVATE_KEY` | `-----BEGIN OPENSSH PRIVATE KEY...` | Contents of your EC2 `.pem` private key |
 | `SSH_PORT` | `22` | SSH port |

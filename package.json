@@ -1,0 +1,22 @@
+{
+  "name": "voxen-cloud-services",
+  "version": "1.0.0",
+  "description": "Voxen Cloud Services - Cloud-Based Document Management System",
+  "scripts": {
+    "test": "npm --prefix backend test && npm --prefix frontend test",
+    "test:backend": "npm --prefix backend test",
+    "test:frontend": "npm --prefix frontend test",
+    "start": "docker compose up --build -d",
+    "stop": "docker compose down"
+  },
+  "keywords": [
+    "cloud-documents",
+    "docker",
+    "react",
+    "nodejs",
+    "postgresql",
+    "nginx"
+  ],
+  "author": "Voxen Cloud Services Team",
+  "license": "MIT"
+}
